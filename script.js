@@ -2,7 +2,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const projects = [
         { name: "LaunchPadClan4", url: "https://github.com/TasleemaShaik/LaunchPadClan4" },
         { name: "News-Articles-Text-Summarizer", url: "https://github.com/TasleemaShaik/Projects/tree/master/News-Articles-Text-Summarizer" },
-        { name: "Tic-Tac-Toe", url: "https://github.com/TasleemaShaik/Projects/tree/master/Tic-Tac-Toe" }
+        { name: "Tic-Tac-Toe", url: "https://github.com/TasleemaShaik/Projects/tree/master/Tic-Tac-Toe" },
+        { name: "InstaDiff", url: "https://github.com/TasleemaShaik/InstaDiff" }
     ];
 
     const projectList = document.getElementById("project-list");
