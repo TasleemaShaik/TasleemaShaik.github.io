@@ -1,2 +1,3 @@
-# TasleemaShaik.github.io
-Initial portfolio
+# TasleemaShaikMohammed(TSM)'s Portfolio
+Hi, I'm **Tasleema Shaik Mohammed**
+Welcome to my personal diary portfolio, where I pen down my projects like diary entries. With a strong foundation in software engineering at Synopsys, I specialize in cloud computing, database optimization, and scalable systems while pursuing my passion for immersive technologies. My work spans from leading cloud-based solutions to developing AR-powered navigation systems and 3D game experiences. Explore my projects to see how I blend innovation, technology, and creativity to build interactive and impactful solutions! 🚀
