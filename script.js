@@ -41,15 +41,22 @@ document.addEventListener("DOMContentLoaded", function () {
             <h3>${project.name}</h3>
           </a>
           <div class="image-container">
-            <div class="door-placeholder" onclick="
-              this.style.display='none';
-              this.nextElementSibling.style.display='block';
-              this.nextElementSibling.style.opacity='1';
-            "></div>
-            <img src="${project.image}" alt="${project.name}" style="display:none; opacity:0;">
+          <div class="door-placeholder"></div>
+          <img src="${project.image}" alt="${project.name}">
           </div>
           <p>${project.description}</p>
         `;
+
+        const door = projectSection.querySelector(".door-placeholder");
+        door.addEventListener("click", function() {
+          door.classList.add('shatter');
+          setTimeout(() => {
+            door.style.display = 'none';
+            door.nextElementSibling.style.display = 'block';
+            door.nextElementSibling.style.opacity = '1';
+          }, 1000);
+        });
+        
         projectList.appendChild(projectSection);
       });      
   });

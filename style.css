@@ -83,9 +83,9 @@ body {
   .door-placeholder {
     background: url('assets/images/door.jpg') center/cover no-repeat;
     cursor: pointer;
-    transition: transform 0.8s ease, opacity 0.8s ease;
     transform-origin: left;
-  }
+    position: relative;
+  }  
   
   .door-placeholder:hover {
     transform: rotateY(10deg) scale(1.02);
@@ -99,4 +99,29 @@ body {
     bottom: 0;
     width: 100%;
   }
-  
+
+  /* Shatter effect specific styles */
+
+.shatter {
+  animation: shatterEffect 1s forwards ease-in-out;
+  /* will-change: transform, opacity; */
+}
+
+@keyframes shatterEffect {
+  0% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  30% {
+    transform: scale(1.1) rotate(10deg);
+    opacity: 0.8;
+  }
+  60% {
+    transform: scale(0.9) rotate(-10deg);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(0.5) rotate(60deg);
+    opacity: 0;
+  }
+}
