@@ -1,110 +1,126 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    background-color: #f4f4f4;
-  }
-  
-  header {
-    background: #0077cc;
-    color: white;
-    padding: 1em 0;
-  }
-  
-  nav ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  nav ul li {
-    display: inline;
-    margin: 0 15px;
-  }
-  
-  nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  section {
-    padding: 40px;
-  }
-  
-  .project-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px; /* Adds space between boxes */
-  }  
-  
-  .project {
-    background: white;
-    padding: 20px;
-    margin: 10px;
-    width: 280px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .project:hover {
-    transform: scale(1.05);
-  }
-  
-  /* Container to hold door + image uniformly */
-  .image-container {
-    width: 100%;
-    height: 250px;
-    overflow: hidden;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    position: relative;
-  }
-  
-  /* Door and Image Styles */
-  .image-container img,
-  .door-placeholder {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-radius: 8px;
-  }
-  
-  .project img {
-    display: none;
-    transition: opacity 0.8s ease;
-  }
-  
-  .door-placeholder {
-    background: url('assets/images/door.jpg') center/cover no-repeat;
-    cursor: pointer;
-    transform-origin: left;
-    position: relative;
-  }  
-  
-  .door-placeholder:hover {
-    transform: rotateY(10deg) scale(1.02);
-  }
-  
-  footer {
-    background: #222;
-    color: white;
-    padding: 10px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-  }
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background-color: #f4f4f4;
+}
 
-  /* Shatter effect specific styles */
+header {
+  background: #0077cc;
+  color: white;
+  padding: 1em 0;
+}
 
+.project-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.project {
+  background: white;
+  padding: 20px;
+  width: 280px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: transform 0.3s ease-in-out;
+}
+
+.project:hover {
+  transform: scale(1.05);
+}
+
+.project h3 a {
+  text-decoration: none;
+  color: #0077cc;
+}
+
+.image-container {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.image-container img,
+.door-placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 8px;
+}
+
+.project img {
+  display: none;
+  transition: opacity 0.8s ease;
+}
+
+.door-placeholder {
+  background: url('assets/images/door.jpg') center/cover no-repeat;
+  cursor: pointer;
+  transform-origin: left;
+  position: relative;
+}
+
+.about-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.about-image {
+  flex: 0 0 250px;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  object-fit: cover;
+}
+
+.about-text {
+  flex: 1;
+  text-align: left;
+}
+
+/* Crack overlay */
+.crack-overlay {
+  background: url('assets/images/crack.png') center/contain no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+  opacity: 0;
+  animation: crackFlash 0.3s ease forwards;
+}
+
+@keyframes crackFlash {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Shatter animation */
 .shatter {
   animation: shatterEffect 1s forwards ease-in-out;
-  /* will-change: transform, opacity; */
 }
 
 @keyframes shatterEffect {
@@ -112,16 +128,43 @@ body {
     transform: scale(1) rotate(0deg);
     opacity: 1;
   }
-  30% {
-    transform: scale(1.1) rotate(10deg);
+  40% {
+    transform: scale(1.05) rotate(10deg);
     opacity: 0.8;
   }
-  60% {
-    transform: scale(0.9) rotate(-10deg);
-    opacity: 0.5;
-  }
   100% {
-    transform: scale(0.5) rotate(60deg);
+    transform: scale(0.3) rotate(70deg) translateX(50px);
     opacity: 0;
   }
+}
+
+/* Flying shards */
+.shard {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: rgba(200, 200, 200, 0.7);
+  border-radius: 2px;
+  animation: shardFly 1s ease-out forwards;
+  z-index: 10;
+}
+
+@keyframes shardFly {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--x), var(--y)) scale(0.5);
+    opacity: 0;
+  }
+}
+
+footer {
+  background: #222;
+  color: white;
+  padding: 10px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
