@@ -33,28 +33,48 @@ const education = [
 
   education.forEach((entry) => {
     const div = document.createElement("div");
-    div.classList.add("education-entry");
+  
+    // Default slide card values
+    let image = "";
+    let slideClass = "";
+  
     if (entry.institution.includes("Binghamton")) {
-        div.classList.add("binghamton-slide-card");
-      
-        div.innerHTML = `
-          <h4 class="binghamton-title">${entry.degree}</h4>
-          <div class="binghamton-image-container">
-            <img src="assets/images/binghamton-bg.jpg" alt="Binghamton University">
-            <div class="binghamton-overlay">
-              <p><a href="${entry.url}" target="_blank"><strong>${entry.institution}</strong></a></p>
-              <p>${entry.duration}</p>
-              <p><em>${entry.gpa}</em></p>
-            </div>
+      slideClass = "binghamton-slide-card";
+      image = "assets/images/binghamton-bg.jpg";
+    } else if (entry.degree.includes("B.Tech")) {
+      slideClass = "btech-slide-card";
+      image = "assets/images/btech-bg.jpg";
+    } else if (entry.degree.includes("Pre-University")) {
+      slideClass = "puc-slide-card";
+      image = "assets/images/puc-bg.jpg";
+    } else if (entry.degree.includes("Class 10th")) {
+      slideClass = "ssc-slide-card";
+      image = "assets/images/ssc-bg.jpg";
+    }
+  
+    if (slideClass) {
+      div.classList.add("education-entry", slideClass);
+      div.innerHTML = `
+        <h4 class="slide-title">${entry.degree}</h4>
+        <div class="slide-image-container">
+          <img src="${image}" alt="${entry.institution}">
+          <div class="slide-overlay">
+            <p><a href="${entry.url}" target="_blank"><strong>${entry.institution}</strong></a></p>
+            <p>${entry.duration}</p>
+            <p><em>${entry.gpa}</em></p>
           </div>
-        `;
-      } else {
-        div.innerHTML = `
-          <h4>${entry.degree}</h4>
-          <p><a href="${entry.url}" target="_blank"><strong>${entry.institution}</strong></a><br>${entry.duration}</p>
-          <p><em>${entry.gpa}</em></p>
-        `;
-      }      
+        </div>
+      `;
+    } else {
+      // fallback
+      div.classList.add("education-entry");
+      div.innerHTML = `
+        <h4>${entry.degree}</h4>
+        <p><a href="${entry.url}" target="_blank"><strong>${entry.institution}</strong></a><br>${entry.duration}</p>
+        <p><em>${entry.gpa}</em></p>
+      `;
+    }
+  
     educationGrid.appendChild(div);
-  });
+  }); 
   

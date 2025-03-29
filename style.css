@@ -12,6 +12,15 @@ header {
   padding: 1em 0;
 }
 
+footer {
+  background: #222;
+  color: white;
+  padding: 10px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
 .project-container {
   display: flex;
   flex-wrap: wrap;
@@ -98,7 +107,6 @@ header {
   text-align: left;
 }
 
-/* Crack overlay */
 .crack-overlay {
   background: url('assets/images/crack.png') center/contain no-repeat;
   position: absolute;
@@ -118,27 +126,16 @@ header {
   100% { opacity: 0; }
 }
 
-/* Shatter animation */
 .shatter {
   animation: shatterEffect 1s forwards ease-in-out;
 }
 
 @keyframes shatterEffect {
-  0% {
-    transform: scale(1) rotate(0deg);
-    opacity: 1;
-  }
-  40% {
-    transform: scale(1.05) rotate(10deg);
-    opacity: 0.8;
-  }
-  100% {
-    transform: scale(0.3) rotate(70deg) translateX(50px);
-    opacity: 0;
-  }
+  0% { transform: scale(1) rotate(0deg); opacity: 1; }
+  40% { transform: scale(1.05) rotate(10deg); opacity: 0.8; }
+  100% { transform: scale(0.3) rotate(70deg) translateX(50px); opacity: 0; }
 }
 
-/* Flying shards */
 .shard {
   position: absolute;
   width: 10px;
@@ -150,31 +147,14 @@ header {
 }
 
 @keyframes shardFly {
-  0% {
-    transform: translate(0, 0) scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: translate(var(--x), var(--y)) scale(0.5);
-    opacity: 0;
-  }
+  0% { transform: translate(0, 0) scale(1); opacity: 1; }
+  100% { transform: translate(var(--x), var(--y)) scale(0.5); opacity: 0; }
 }
 
-footer {
-  background: #222;
-  color: white;
-  padding: 10px;
-  position: relative;
-  bottom: 0;
+#education {
+  max-width: 100%;
   width: 100%;
-}
-
-.education-entry {
-  background: #fff;
-  padding: 20px;
-  border-left: 5px solid #0077cc;
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0,0,0,0.05);
+  margin-top: 30px;
 }
 
 .education-grid {
@@ -182,81 +162,18 @@ footer {
   grid-template-columns: repeat(2, 1fr);
   gap: 25px;
   padding: 0 10px;
-  margin-top: 30px;
 }
 
-#education {
-  max-width: 100%;
-  width: 100%;
-}
-
-.binghamton-bg {
-  background-image: url('assets/images/binghamton-bg.jpg');
-  background-size: cover;
-  background-position: center;
-  color: white;
-  position: relative;
-  overflow: hidden;
-}
-
-.binghamton-bg::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 0;
-}
-
-.binghamton-bg * {
-  position: relative;
-  z-index: 1;
-}
-
-.binghamton-highlight {
-  background-image: url('assets/images/binghamton-bg.jpg');
-  background-size: cover;
-  background-position: center;
-  border-radius: 15px;
-  overflow: hidden;
-  color: white;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  min-height: 230px;
-}
-
-.binghamton-highlight .glass-content {
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(6px);
-  padding: 20px;
-  width: 100%;
-  text-align: center;
-  z-index: 1;
-}
-
-.binghamton-highlight a {
-  color: #aad9ff;
-  text-decoration: underline;
-}
-
-.binghamton-highlight h4,
-.binghamton-highlight p {
-  margin: 8px 0;
-  color: #fff;
-}
-
-.binghamton-slide-card {
+.education-entry {
   background: #fff;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  text-align: center;
   padding: 0;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.05);
+  overflow: hidden;
+  text-align: center;
 }
 
-.binghamton-title {
+.slide-title {
   background: #0077cc;
   color: white;
   padding: 12px;
@@ -264,13 +181,13 @@ footer {
   margin: 0;
 }
 
-.binghamton-image-container {
+.slide-image-container {
   position: relative;
   height: 200px;
   overflow: hidden;
 }
 
-.binghamton-image-container img {
+.slide-image-container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -278,7 +195,7 @@ footer {
   transition: transform 0.6s ease;
 }
 
-.binghamton-overlay {
+.slide-overlay {
   position: absolute;
   bottom: -100%;
   left: 0;
@@ -291,15 +208,15 @@ footer {
   text-align: center;
 }
 
-.binghamton-slide-card:hover .binghamton-overlay {
+.education-entry:hover .slide-overlay {
   bottom: 0;
 }
 
-.binghamton-slide-card:hover img {
+.education-entry:hover img {
   transform: scale(1.05);
 }
 
-.binghamton-overlay a {
+.slide-overlay a {
   color: #aad9ff;
   text-decoration: underline;
 }
