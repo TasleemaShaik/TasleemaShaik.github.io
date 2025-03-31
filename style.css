@@ -226,19 +226,19 @@ footer {
 }
 
 .slide-info-box {
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 10px;
-  padding: 10px 15px;
-  width: 120px;
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 12px;
+  padding: 15px 20px;
   color: #fff;
-  font-size: 0.9rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  backdrop-filter: blur(4px);
+  font-size: 0.95rem;
+  font-weight: 500;
+  width: 180px;
+  height: 80px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  backdrop-filter: blur(6px);
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   text-align: center;
 }
 
