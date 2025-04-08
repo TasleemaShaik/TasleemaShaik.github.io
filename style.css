@@ -24,15 +24,18 @@ footer {
 .project-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around; /* spreads items more evenly */
   gap: 20px;
-  padding: 20px;
+  padding: 20px 40px; /* add side padding */
+  max-width: 900px;    /* limit container width */
+  margin: 0 auto;      /* center container */
 }
 
 .project {
   background: white;
   padding: 20px;
-  width: 280px;
+  width: calc(48%); /* a bit wider with tighter gap */
+  max-width: 440px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   position: relative;
@@ -74,7 +77,7 @@ footer {
 }
 
 .door-placeholder {
-  background: url('assets/images/door.jpg') center/cover no-repeat;
+  background: url('assets/images/BigBlackDoor.jpg') center/cover no-repeat;
   cursor: pointer;
   transform-origin: left;
   position: relative;
@@ -226,16 +229,17 @@ footer {
 }
 
 .slide-info-box {
-  background-color: rgba(255, 255, 255, 0.25);
-  border-radius: 12px;
-  padding: 15px 20px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  padding: 12px 16px;
   color: #fff;
   font-size: 0.95rem;
   font-weight: 500;
-  width: 180px;
-  height: 80px;
+  width: 160px;
+  min-height: 70px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(5px);
   display: flex;
   align-items: center;
   justify-content: center;
