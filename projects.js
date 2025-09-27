@@ -56,15 +56,20 @@ document.addEventListener("DOMContentLoaded", function () {
     let projectSection = document.createElement("div");
     projectSection.classList.add("project");
 
+    const hasRichMarkup = /<\s*(ul|ol|div|p)[^>]*>/i.test(project.description);
+    const descriptionMarkup = hasRichMarkup
+      ? project.description
+      : `<p>${project.description}</p>`;
+
     projectSection.innerHTML = `
-      <a href="${project.url}" target="_blank">
-        <h3>${project.name}</h3>
-      </a>
       <div class="image-container">
         <div class="door-placeholder"></div>
         <img src="${project.image}" alt="${project.name}">
       </div>
-      <p>${project.description}</p>
+      <div class="project-content">
+        <h3><a href="${project.url}" target="_blank">${project.name}</a></h3>
+        ${descriptionMarkup}
+      </div>
     `;
 
     const door = projectSection.querySelector(".door-placeholder");
