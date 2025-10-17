@@ -23,13 +23,7 @@ Applied techniques for overlaying AI-generated annotations (dots and routes) ont
       url: "https://github.com/prembhajaj/HackBU",
       tech: ["React", "Spring Boot"],
       date: "Feb 2024",
-      description: `<ul>
-        <li>Developed a full-stack application during the HackBU hackathon using React.js for the frontend and Java Spring Boot for the backend.</li>
-        <li>Created a code editor interface where users can write code, which is then processed to generate UML diagrams for visual representation.</li>
-        <li>Integrated OpenAI's ChatGPT to analyze the code and provide specific improvement suggestions, enhancing code quality.</li>
-        <li>Combined modern web development technologies and AI to create an intuitive and efficient platform.</li>
-        <li>Successfully collaborated in a team environment to deliver an innovative project, receiving positive feedback for its practical application.</li>
-      </ul>`,
+      description: "Code Analysis and Visualization Platform: Developed a full-stack application during the HackBU hackathon using React.js for the frontend and Java Spring Boot for the backend. Created a code editor interface where users can write code, which is then processed to generate UML diagrams for visual representation. Integrated OpenAI's ChatGPT to analyze the code and provide specific improvement suggestions, enhancing code quality.Combined modern web development technologies and AI to create an intuitive and efficient platform. Successfully collaborated in a team environment to deliver an innovative project, receiving positive feedback for its practical application.",
       image: "assets/images/HackBU.png",
     },
     {
@@ -79,7 +73,7 @@ Applied techniques for overlaying AI-generated annotations (dots and routes) ont
       tech: ["Core Java", "Applets"],
       date: "Aug 2017",
       description:
-        "The continued interest in java has made us do a fun project which is very popular multiplayer game(tic-tac-toe), to take the user's move as an input & analyze it as a win/lose.",
+        "The continued interest in java has made our team(of 4 students) to do a fun project which is very popular multiplayer game(tic-tac-toe), to take the user's move as an input & analyze it as a win/lose.",
       image: "assets/images/Tic-Tac-Toe.jpg",
     },
   ];
