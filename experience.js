@@ -58,6 +58,20 @@ const experiences = [
       "Wrote the AutoScaler component to right-size GCP compute resources in real time, lowering resource waste by 70%.",
     ],
   },
+  {
+    role: "Technical Assistant",
+    company: "Career Development & Placement Cell, RGUKT-N",
+    companyUrl: "https://www.linkedin.com/company/cdpc-rguktn/",
+    location: "Nuzvid, India",
+    duration: "Jun 2017 - Apr 2018",
+    summary:
+    "Developed and maintained various software solutions for the placement cell.",
+    highlights: [
+      "Development of CDPC Web Portal for providing better information to recruiters and students.",
+      "Development of Single Window System Software to reduce the students work to get permission for Interns and Jobs.",
+      "Development of Online Resume Builder Website to help students to design resume in short span of time."
+    ]
+  }
 ];
 
 const experienceList = document.getElementById("experience-list");

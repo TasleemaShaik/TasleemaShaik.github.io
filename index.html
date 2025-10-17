@@ -25,6 +25,9 @@
           <li><a href="#experience">Experience</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#education">Education</a></li>
+          <li><a href="#certifications">Certifications</a></li>
+          <li><a href="#awards">Awards</a></li>
+          <li><a href="#activities">Activities</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -39,7 +42,7 @@
         </div>
         <div class="about-text">
           <p>
-          Hi, I'm <strong>Tasleema Shaik Mohammed</strong>, I’m a full-stack engineer with 5+ years building and operating production systems across Node.js/TypeScript, Go, Python, PostgreSQL, and AWS. I’ve shipped APIs and data pipelines end-to-end (alerting integrations, autoscaling services, Postgres read-replica balancing with PGPOOL2), led debugging and observability efforts (Helm rollout fixes, runbooks, CI/CD), and care about turning customer needs into fast, reliable releases. Recent projects include PathSpotter.AI (geospatial assistant) and an email/SMS notification service designed for secure configuration and reuse. I enjoy owning roadmaps with product, defining clear success metrics, and scaling backends to millions of requests while keeping latency, cost, and correctness in check.
+          Hi, I'm <strong>Tasleema Shaik Mohammed</strong>, I’m a full-stack engineer with 5+ years building and operating production systems across Go, Python, PostgreSQL, and all top cloud providers. I’ve shipped APIs and data pipelines end-to-end (alerting integrations, autoscaling services, Postgres read-replica balancing with PGPOOL2), led debugging and observability efforts (Helm rollout fixes, runbooks, CI/CD), and care about turning customer needs into fast, reliable releases. Recent projects include PathSpotter.AI (geospatial assistant) and ExAdvisor(An LLM based privacy-first chatbot that helps you decide if and how to reach out to someone from your past). I enjoy owning roadmaps with product, defining clear success metrics, and scaling backends to millions of requests while keeping latency, cost, and correctness in check.
           </p>
         </div>
       </div>
@@ -60,6 +63,21 @@
       <div id="education-grid" class="education-grid"></div>
     </section>
 
+    <section id="certifications">
+      <h2>Certifications <i class="fas fa-certificate"></i></h2>
+      <div id="certifications-list" class="certifications-container"></div>
+    </section>
+
+    <section id="awards">
+      <h2>Awards & Prizes <i class="fas fa-trophy"></i></h2>
+      <div id="awards-list" class="awards-container"></div>
+    </section>
+
+    <section id="activities">
+      <h2>Extra Curricular Activities <i class="fas fa-users"></i></h2>
+      <div id="activities-list" class="activities-container"></div>
+    </section>
+
     <section id="contact">
       <h2>Contact</h2>
       <p>Email: <a href="mailto:tshaikmohamm@binghamton.edu">tshaikmohamm@binghamton.edu</a></p>
@@ -72,9 +90,16 @@
     <p>© 2025 Tasleema Shaik | Designed like a personal diary ✨</p>
   </footer>
   <audio id="glassSound" src="assets/sounds/glass-break.mp3" preload="auto"></audio>
+  <button id="back-to-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
   <script src="nav.js"></script>
   <script src="projects.js"></script>
   <script src="experience.js"></script>
   <script src="education.js"></script>
+  <script src="certifications.js"></script>
+  <script src="awards.js"></script>
+  <script src="activities.js"></script>
+  <script src="back-to-top.js"></script>
 </body>
 </html>
