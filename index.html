@@ -12,7 +12,23 @@
 </head>
 <body>
   <header>
-    <h1>My Creative Diary</h1>
+    <div class="header-inner">
+      <h1>My Creative Diary</h1>
+      <nav class="primary-nav" aria-label="Primary">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+          <span class="nav-toggle-bar"></span>
+        </button>
+        <ul id="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
   <div class="container">
     <section id="about">
@@ -23,10 +39,15 @@
         </div>
         <div class="about-text">
           <p>
-          Hi, I'm <strong>Tasleema Shaik Mohammed</strong>, Welcome to my personal diary portfolio, where I pen down my projects like diary entries. With a strong foundation in software engineering at Synopsys, I specialize in cloud computing, database optimization, and scalable systems while pursuing my passion for immersive technologies. My work spans from leading cloud-based solutions to developing AR-powered navigation systems and 3D game experiences. Explore my projects to see how I blend innovation, technology, and creativity to build interactive and impactful solutions! 🚀
+          Hi, I'm <strong>Tasleema Shaik Mohammed</strong>, I’m a full-stack engineer with 5+ years building and operating production systems across Node.js/TypeScript, Go, Python, PostgreSQL, and AWS. I’ve shipped APIs and data pipelines end-to-end (alerting integrations, autoscaling services, Postgres read-replica balancing with PGPOOL2), led debugging and observability efforts (Helm rollout fixes, runbooks, CI/CD), and care about turning customer needs into fast, reliable releases. Recent projects include PathSpotter.AI (geospatial assistant) and an email/SMS notification service designed for secure configuration and reuse. I enjoy owning roadmaps with product, defining clear success metrics, and scaling backends to millions of requests while keeping latency, cost, and correctness in check.
           </p>
         </div>
       </div>
+    </section>
+
+    <section id="experience">
+      <h2>Experience <i class="fas fa-briefcase"></i></h2>
+      <div id="experience-list" class="experience-container"></div>
     </section>
 
     <section id="projects">
@@ -41,8 +62,9 @@
 
     <section id="contact">
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:tasleemashaik248@gmail.com">tasleemashaik248@gmail.com</a></p>
+      <p>Email: <a href="mailto:tshaikmohamm@binghamton.edu">tshaikmohamm@binghamton.edu</a></p>
       <p>GitHub: <a href="https://github.com/TasleemaShaik" target="_blank">github.com/TasleemaShaik</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/shaik-mohammed-tasleema/" target="_blank">shaik-mohammed-tasleema</a></p>
     </section>
   </div>
 
@@ -50,7 +72,9 @@
     <p>© 2025 Tasleema Shaik | Designed like a personal diary ✨</p>
   </footer>
   <audio id="glassSound" src="assets/sounds/glass-break.mp3" preload="auto"></audio>
+  <script src="nav.js"></script>
   <script src="projects.js"></script>
+  <script src="experience.js"></script>
   <script src="education.js"></script>
 </body>
 </html>
