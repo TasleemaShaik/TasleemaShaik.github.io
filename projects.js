@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     {
       name: "ExAdvisor",
       url: "https://github.com/TasleemaShaik/exadvisor",
-      tech: ["TypeScript", "OpenAI API"],
+      tech: ["React", "Node/Express", "Local Ollama with a Llama model"],
       date: "Oct 2025",
       description:
         "ExAdvisor is a tiny, privacy-first chatbot that helps you decide if and how to reach out to someone from your past. You enter a short profile for each person (TQI, time-to-reply/initiate, where you met, time spent, strengths/weaknesses, contact status). Sensitive notes never leave your machine: when the optional LLM is invoked we send only a redacted summary (contact streaks, toxicity score, rule outcome) so personal identifiers and free-form notes remain local.",
