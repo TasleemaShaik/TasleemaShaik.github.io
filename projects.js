@@ -115,7 +115,26 @@ Applied techniques for overlaying AI-generated annotations (dots and routes) ont
     `;
 
     const door = projectSection.querySelector(".door-placeholder");
-    door.addEventListener("click", () => {
+    const image = projectSection.querySelector(".image-container img");
+
+    const removeEffects = () => {
+      door.classList.remove("shatter");
+      Array.from(door.querySelectorAll(".crack-overlay, .shard")).forEach((el) => el.remove());
+    };
+
+    const resetDoor = () => {
+      if (door.dataset.state === "closed") return;
+      image.style.display = "none";
+      image.style.opacity = "0";
+      door.style.display = "block";
+      removeEffects();
+      door.dataset.state = "closed";
+    };
+
+    const openDoor = () => {
+      if (door.dataset.state === "opening" || door.dataset.state === "open") return;
+      door.dataset.state = "opening";
+
       const crack = document.createElement("div");
       crack.classList.add("crack-overlay");
       door.appendChild(crack);
@@ -135,10 +154,15 @@ Applied techniques for overlaying AI-generated annotations (dots and routes) ont
 
       setTimeout(() => {
         door.style.display = "none";
-        door.nextElementSibling.style.display = "block";
-        door.nextElementSibling.style.opacity = "1";
+        image.style.display = "block";
+        image.style.opacity = "1";
+        door.dataset.state = "open";
       }, 1000);
-    });
+    };
+
+    resetDoor();
+    door.addEventListener("click", openDoor);
+    image.addEventListener("click", resetDoor);
 
     projectList.appendChild(projectSection);
   });

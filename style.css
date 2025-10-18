@@ -524,6 +524,10 @@ footer p {
   border-radius: 18px;
 }
 
+.image-container img {
+  cursor: pointer;
+}
+
 
 .project img {
   display: none;
