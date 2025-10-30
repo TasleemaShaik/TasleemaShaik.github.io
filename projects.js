@@ -127,8 +127,20 @@ Applied techniques for overlaying AI-generated annotations (dots and routes) ont
       image.style.display = "none";
       image.style.opacity = "0";
       door.style.display = "block";
+      door.style.opacity = "0";
+      door.style.transform = "scale(0.92)";
       removeEffects();
       door.dataset.state = "closed";
+
+      requestAnimationFrame(() => {
+        door.style.transition = "opacity 0.4s ease, transform 0.4s ease";
+        door.style.opacity = "1";
+        door.style.transform = "scale(1)";
+      });
+
+      setTimeout(() => {
+        door.style.transition = "";
+      }, 400);
     };
 
     const openDoor = () => {

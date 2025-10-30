@@ -1,6 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
   const certifications = [
     {
+      name: "Quantum Machine Learning",
+      issuer: `<a href="https://quantum.cloud.ibm.com/learning/en/courses/quantum-machine-learning" target="_blank">IBM</a>`,
+      date: "Oct 2025",
+      url: "https://www.credly.com/badges/e9199aa7-d58b-4f9e-8761-e5dc02e2c370",
+    },
+    {
       name: "Fundamentals of Quantum Algorithms",
       issuer: `<a href="https://quantum.cloud.ibm.com/learning/en/courses/fundamentals-of-quantum-algorithms" target="_blank">IBM</a>`,
       date: "June 2025",
