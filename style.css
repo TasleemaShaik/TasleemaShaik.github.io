@@ -103,9 +103,10 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   opacity: 0;
   pointer-events: none;
+  transform: translateY(20px);
   z-index: 999;
 }
 
@@ -117,6 +118,11 @@ header {
 
 #back-to-top i {
   font-size: 1.2rem;
+}
+
+#back-to-top:hover,
+#back-to-top:focus-visible {
+  box-shadow: 0 24px 38px rgba(31, 58, 138, 0.28);
 }
 
 .container {
@@ -209,9 +215,11 @@ p {
   justify-content: center;
   font-size: 2.4rem;
   color: var(--primary);
-  border: 4px solid rgba(31, 58, 138, 0.2);
-  backdrop-filter: blur(6px);
-  transition: transform 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  border: 4px solid rgba(31, 58, 138, 0.18);
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 18px 32px rgba(15, 23, 42, 0.12);
+  transition: transform 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
   justify-self: center;
 }
 
@@ -226,7 +234,66 @@ p {
 .contact-link:focus {
   transform: translateY(-6px);
   border-color: rgba(31, 58, 138, 0.45);
+  color: #fff;
+  background: linear-gradient(135deg, rgba(31, 58, 138, 0.95), rgba(17, 94, 163, 0.92));
+  box-shadow: 0 26px 48px rgba(15, 23, 42, 0.25);
+}
+  transform: translateY(-6px);
+  border-color: rgba(31, 58, 138, 0.45);
   color: var(--accent);
+}
+
+.project-carousel-controls {
+  display: none;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.project-carousel-controls.visible {
+  display: flex;
+}
+
+.project-nav {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(135deg, rgba(31, 58, 138, 0.95), rgba(17, 94, 163, 0.9));
+  box-shadow: var(--shadow);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-nav i {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.project-nav:hover:not(:disabled),
+.project-nav:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 32px rgba(31, 58, 138, 0.28);
+}
+
+.project-nav:disabled {
+  opacity: 0.3;
+  cursor: default;
+  transform: none;
+  box-shadow: none;
+}
+
+.project-nav:focus {
+  outline: none;
+}
+
+.project-nav:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
 }
 
 .activity-card {
@@ -406,6 +473,7 @@ p {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .award-heading {
@@ -450,6 +518,12 @@ p {
   margin: 0;
   font-weight: 600;
   color: var(--muted);
+}
+
+.award-card:hover,
+.award-card:focus-within {
+  transform: translateY(-6px);
+  box-shadow: 0 26px 48px rgba(15, 23, 42, 0.18);
 }
 
 .activity-description {
@@ -693,6 +767,35 @@ footer p {
   .project-content ul {
     padding-left: 0;
     list-style-position: inside;
+  }
+
+  .project-container.project-carousel-active {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 0;
+    min-height: auto;
+    perspective: none;
+  }
+
+  .project-container.project-carousel-active .project {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none !important;
+    opacity: 1 !important;
+    filter: none !important;
+    pointer-events: auto;
+  }
+
+  .project-container.project-carousel-active .project .project-content,
+  .project-container.project-carousel-active .project .door-placeholder,
+  .project-container.project-carousel-active .project .image-container img {
+    pointer-events: auto;
+  }
+
+  .project-carousel-controls.visible {
+    display: none;
   }
 
   .skills-container,
@@ -1007,3 +1110,94 @@ footer p {
   opacity: 1;
   transform: translateY(0);
 }
+.project-container.project-carousel-active {
+  position: relative;
+  display: grid;
+  place-items: center;
+  gap: 0;
+  padding: 60px 0;
+  max-width: 900px;
+  margin: 0 auto;
+  min-height: 560px;
+  perspective: 1600px;
+}
+
+.project-container.project-carousel-active .project {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(92%, 760px);
+  max-width: 760px;
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) 1fr;
+  gap: 28px;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate3d(-50%, -50%, 0) scale(0.82);
+  box-shadow: 0 24px 40px rgba(15, 23, 42, 0.15);
+  transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1), opacity 0.45s ease, filter 0.45s ease;
+  filter: blur(0);
+}
+
+.project-container.project-carousel-active .project--center {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate3d(-50%, -50%, 0) scale(1);
+  z-index: 4;
+  filter: none;
+}
+
+.project-container.project-carousel-active .project--left {
+  opacity: 0.65;
+  transform: translate3d(-150%, -50%, -140px) scale(0.86) rotateY(16deg);
+  z-index: 3;
+  filter: blur(1px);
+}
+
+.project-container.project-carousel-active .project--right {
+  opacity: 0.65;
+  transform: translate3d(50%, -50%, -140px) scale(0.86) rotateY(-16deg);
+  z-index: 3;
+  filter: blur(1px);
+}
+
+.project-container.project-carousel-active .project--far-left {
+  opacity: 0.35;
+  transform: translate3d(-220%, -50%, -220px) scale(0.7) rotateY(22deg);
+  z-index: 2;
+  filter: blur(2px);
+}
+
+.project-container.project-carousel-active .project--far-right {
+  opacity: 0.35;
+  transform: translate3d(120%, -50%, -220px) scale(0.7) rotateY(-22deg);
+  z-index: 2;
+  filter: blur(2px);
+}
+
+.project-container.project-carousel-active .project--hidden-left {
+  opacity: 0;
+  transform: translate3d(-260%, -50%, -300px) scale(0.55) rotateY(28deg);
+  z-index: 1;
+  filter: blur(3px);
+}
+
+.project-container.project-carousel-active .project--hidden-right {
+  opacity: 0;
+  transform: translate3d(160%, -50%, -300px) scale(0.55) rotateY(-28deg);
+  z-index: 1;
+  filter: blur(3px);
+}
+
+.project-container.project-carousel-active .project:not(.project--center) .project-content,
+.project-container.project-carousel-active .project:not(.project--center) .door-placeholder,
+.project-container.project-carousel-active .project:not(.project--center) .image-container img {
+  pointer-events: none;
+}
+
+.project-container.project-carousel-active .project--center .project-content,
+.project-container.project-carousel-active .project--center .door-placeholder,
+.project-container.project-carousel-active .project--center .image-container img {
+  pointer-events: auto;
+}
+

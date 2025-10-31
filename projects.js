@@ -79,6 +79,10 @@ Applied techniques for overlaying AI-generated annotations (dots and routes) ont
   ];
 
   const projectList = document.getElementById("project-list");
+  const controls = document.querySelector(".project-carousel-controls");
+  const prevBtn = controls ? controls.querySelector(".project-nav--prev") : null;
+  const nextBtn = controls ? controls.querySelector(".project-nav--next") : null;
+  const cards = [];
 
   projects.forEach((project) => {
     const projectSection = document.createElement("div");
@@ -123,29 +127,40 @@ Applied techniques for overlaying AI-generated annotations (dots and routes) ont
     };
 
     const resetDoor = () => {
-      if (door.dataset.state === "closed") return;
+      if (!door.dataset.state) door.dataset.state = "closed";
       image.style.display = "none";
       image.style.opacity = "0";
       door.style.display = "block";
-      door.style.opacity = "0";
-      door.style.transform = "scale(0.92)";
       removeEffects();
-      door.dataset.state = "closed";
 
-      requestAnimationFrame(() => {
-        door.style.transition = "opacity 0.4s ease, transform 0.4s ease";
+      if (door.dataset.state !== "closed") {
+        door.style.transition = "";
+        door.style.opacity = "0";
+        door.style.transform = "scale(0.92)";
+
+        requestAnimationFrame(() => {
+          door.style.transition = "opacity 0.4s ease, transform 0.4s ease";
+          door.style.opacity = "1";
+          door.style.transform = "scale(1)";
+        });
+
+        setTimeout(() => {
+          door.style.transition = "";
+        }, 400);
+      } else {
         door.style.opacity = "1";
         door.style.transform = "scale(1)";
-      });
+      }
 
-      setTimeout(() => {
-        door.style.transition = "";
-      }, 400);
+      door.dataset.state = "closed";
     };
 
     const openDoor = () => {
       if (door.dataset.state === "opening" || door.dataset.state === "open") return;
       door.dataset.state = "opening";
+      door.style.transition = "";
+      door.style.opacity = "1";
+      door.style.transform = "scale(1)";
 
       const crack = document.createElement("div");
       crack.classList.add("crack-overlay");
@@ -169,6 +184,9 @@ Applied techniques for overlaying AI-generated annotations (dots and routes) ont
         image.style.display = "block";
         image.style.opacity = "1";
         door.dataset.state = "open";
+        setTimeout(() => {
+          door.style.transition = "";
+        }, 0);
       }, 1000);
     };
 
@@ -176,7 +194,91 @@ Applied techniques for overlaying AI-generated annotations (dots and routes) ont
     door.addEventListener("click", openDoor);
     image.addEventListener("click", resetDoor);
 
+    cards.push({ element: projectSection, resetDoor });
+
     projectList.appendChild(projectSection);
   });
+
+  const total = cards.length;
+  let currentIndex = 0;
+
+  const classStates = [
+    "project--center",
+    "project--left",
+    "project--right",
+    "project--far-left",
+    "project--far-right",
+    "project--hidden-left",
+    "project--hidden-right",
+  ];
+
+  const updateControlsVisibility = (active) => {
+    if (!controls) return;
+    controls.classList.toggle("visible", active);
+    if (prevBtn) prevBtn.disabled = !active;
+    if (nextBtn) nextBtn.disabled = !active;
+    controls.setAttribute("aria-hidden", active ? "false" : "true");
+  };
+
+  const applyPositions = () => {
+    const active = total > 1 && window.innerWidth > 900;
+    projectList.classList.toggle("project-carousel-active", active);
+    updateControlsVisibility(active);
+
+    cards.forEach(({ element, resetDoor }, idx) => {
+      element.classList.remove(...classStates);
+
+      if (!active) {
+        resetDoor();
+        element.style.removeProperty("opacity");
+        element.style.removeProperty("transform");
+        element.style.removeProperty("z-index");
+        element.style.removeProperty("filter");
+        element.style.removeProperty("pointer-events");
+        return;
+      }
+
+      const relative = (idx - currentIndex + total) % total;
+
+      if (relative === 0) {
+        element.classList.add("project--center");
+      } else if (relative === 1) {
+        element.classList.add("project--right");
+        resetDoor();
+      } else if (relative === total - 1) {
+        element.classList.add("project--left");
+        resetDoor();
+      } else if (relative === 2) {
+        element.classList.add("project--far-right");
+        resetDoor();
+      } else if (relative === total - 2) {
+        element.classList.add("project--far-left");
+        resetDoor();
+      } else if (relative < total / 2) {
+        element.classList.add("project--hidden-right");
+        resetDoor();
+      } else {
+        element.classList.add("project--hidden-left");
+        resetDoor();
+      }
+    });
+  };
+
+  const shiftCarousel = (direction) => {
+    if (total < 2 || window.innerWidth <= 900) return;
+    currentIndex = (currentIndex + direction + total) % total;
+    applyPositions();
+  };
+
+  if (prevBtn) {
+    prevBtn.addEventListener("click", () => shiftCarousel(-1));
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => shiftCarousel(1));
+  }
+
+  window.addEventListener("resize", applyPositions);
+  applyPositions();
 });
 
