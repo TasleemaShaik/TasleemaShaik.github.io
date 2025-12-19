@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const categories = [
     {
       name: "Frontend",
-      items: ["Angular", "Unity", "React"],
+      items: ["Next.js", "Unity", "React"],
     },
     {
       name: "Tools",
@@ -22,7 +22,18 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       name: "Machine Learning",
-      items: ["Pandas", "TensorFlow", "PyTorch"],
+      items: [
+        "Pandas",
+        "TensorFlow",
+        "TensorFlow / Keras",
+        "scikit-learn",
+        "Qiskit (Terra, Aer, Machine Learning)",
+        "SciPy (COBYLA optimization)",
+        "Computer Vision",
+        "NLP",
+        "PyTorch",
+        "Ollama",
+      ],
     },
     {
       name: "Cloud & Infrastructure",
@@ -49,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       name: "Technologies",
-      items: ["Distributed Systems", "Unit Testing", "Prototyping"],
+      items: ["Distributed Systems", "Unit Testing", "Prototyping", "Applets"],
     },
     {
       name: "Other",
@@ -58,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
   ];
 
   const iconMap = {
-    Angular: "devicon-angularjs-plain colored",
+   "Next.js": "devicon-nextjs-plain",
     Unity: "devicon-unity-original colored",
     React: "devicon-react-original colored",
     Git: "devicon-git-plain colored",
@@ -83,7 +94,14 @@ document.addEventListener("DOMContentLoaded", () => {
     MongoDB: "devicon-mongodb-plain colored",
     Pandas: "devicon-pandas-original",
     TensorFlow: "devicon-tensorflow-original colored",
+    "TensorFlow / Keras": "devicon-tensorflow-original colored",
+    "scikit-learn": "fas fa-project-diagram",
+    "Qiskit (Terra, Aer, Machine Learning)": "fas fa-atom",
+    "SciPy (COBYLA optimization)": "fas fa-flask",
+    "Computer Vision": "fas fa-eye",
+    NLP: "fas fa-brain",
     PyTorch: "devicon-pytorch-original colored",
+    "Local Ollama with a Llama model": "fas fa-robot",
     AWS: "devicon-amazonwebservices-plain colored",
     GCP: "devicon-googlecloud-plain colored",
     Azure: "devicon-azure-plain colored",
@@ -111,6 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "Distributed Systems": "fas fa-project-diagram",
     "Unit Testing": "fas fa-vial",
     Prototyping: "fas fa-flask",
+    Applets: "fas fa-puzzle-piece",
     "Open-source Technologies": "fas fa-code-branch",
     Elasticsearch: "devicon-elasticsearch-plain colored",
     "API Design": "fas fa-sitemap",

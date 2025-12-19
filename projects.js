@@ -1,6 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
   const projects = [
     {
+      name: "Classical vs Quantum Neural Networks: A Practical Benchmark on USPS 'ZipsData'",
+      url: "https://github.com/TasleemaShaik/TerminationProject-QuantumComputing/blob/main/Final%20Submission/Termination_Project_Report_Tasleema_Shaik_Mohammed.pdf",
+      tech: [
+        "Python",
+        "TensorFlow / Keras",
+        "scikit-learn",
+        "Qiskit (Terra, Aer, Machine Learning)",
+        "SciPy (COBYLA optimization)",
+        "NumPy"
+      ],
+      date: "Dec 2025",
+      description:
+        "Benchmarked classical neural nets (LogReg, MLP, DNN) against a two-qubit Quantum Neural Network on a USPS digits subset, redesigning the QNN (EstimatorQNN + ZZFeatureMap + TwoLocal + COBYLA) to improve accuracy from 0.60 to 0.82 while keeping training time around 15.4 minutes and using only a stratified subset of 600 training samples.",
+      image: "assets/images/QC_TerminationProject.png",
+    },
+    {
       name: "ExAdvisor",
       url: "https://github.com/TasleemaShaik/exadvisor",
       tech: ["React", "Node/Express", "Local Ollama with a Llama model"],

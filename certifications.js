@@ -1,6 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
   const certifications = [
     {
+      name: "5-Day AI Agents By Google",
+      issuer: `<a href="https://www.kaggle.com/learn-guide/5-day-agents" target="_blank">Google</a>`,
+      date: "Dec 2025",
+      url: "https://www.kaggle.com/certification/badges/tasleemasm/105"
+    },
+    {
       name: "Quantum Machine Learning",
       issuer: `<a href="https://quantum.cloud.ibm.com/learning/en/courses/quantum-machine-learning" target="_blank">IBM</a>`,
       date: "Oct 2025",
@@ -20,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       name: "5-Day Gen AI By Google Through Kaggle",
-      issuer: `<a href="https://rsvp.withgoogle.com/events/google-generative-ai-intensive/home" target="_blank">Google</a>`,
+      issuer: `<a href="https://www.kaggle.com/learn-guide/5-day-genai" target="_blank">Google</a>`,
       date: "Apr 2025",
       url: "https://www.kaggle.com/certification/badges/tasleemasm/96",
     },

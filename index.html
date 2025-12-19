@@ -36,6 +36,20 @@
       </nav>
     </div>
   </header>
+  <div class="update-banner" id="update-banner" role="status" aria-live="polite">
+    <button class="update-banner__close" type="button" aria-label="Dismiss updates">
+      <i class="fas fa-times"></i>
+    </button>
+    <p class="update-banner__eyebrow">New highlights</p>
+    <p class="update-banner__title">Quantum Computing Termination Project and 5-day Agents Certification</p>
+    <div class="update-banner__actions">
+      <a href="#projects">View project</a>
+      <a href="#certifications">View certification</a>
+    </div>
+  </div>
+  <button class="update-peek update-peek--variant-1" id="update-peek" type="button" aria-label="Show recent highlights">
+    <span>New</span>
+  </button>
   <div class="container">
     <section id="about">
       <h2>About Me</h2>
@@ -45,7 +59,7 @@
         </div>
         <div class="about-text">
           <p>
-          Hi, I'm <strong>Tasleema Shaik Mohammed</strong>, I’m a full-stack engineer with 5+ years building and operating production systems across Go, Python, PostgreSQL, and all major cloud providers(AWS, GCP, Azure). I’ve shipped APIs and data pipelines end-to-end (alerting integrations, autoscaling services, Postgres read-replica balancing with PGPOOL2), led debugging and observability efforts (Helm rollout fixes, runbooks, CI/CD), and care about turning customer needs into fast, reliable releases. Recent projects include PathSpotter.AI (geospatial assistant) and ExAdvisor(An LLM based privacy-first chatbot that helps you decide if and how to reach out to someone from your past). I enjoy owning roadmaps with product, defining clear success metrics, and scaling backends to millions of requests while keeping latency, cost, and correctness in check.
+          Hi, I'm <strong>Tasleema Shaik Mohammed</strong>, I’m a full-stack engineer with 5+ years building and operating production systems across Go, Python, PostgreSQL, and all major cloud providers(AWS, GCP, Azure). I’ve shipped APIs and data pipelines end-to-end (alerting integrations, autoscaling services, Postgres read-replica balancing with PGPOOL2), led debugging and observability efforts (Helm rollout fixes, runbooks, CI/CD), and care about turning customer needs into fast, reliable releases. Recent projects include PathSpotter.AI (geospatial assistant), ExAdvisor (an LLM-based privacy-first chatbot), and my Quantum Computing termination project. I also earned a 5-day AI agents certification. I enjoy owning roadmaps with product, defining clear success metrics, and scaling backends to millions of requests while keeping latency, cost, and correctness in check.
           </p>
         </div>
       </div>
@@ -125,6 +139,7 @@
   <script src="awards.js"></script>
   <script src="skills.js"></script>
   <script src="activities.js"></script>
+  <script src="update-banner.js"></script>
   <script src="section-reveal.js"></script>
   <script src="back-to-top.js"></script>
 </body>
