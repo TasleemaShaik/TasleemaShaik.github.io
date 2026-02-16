@@ -1,6 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
   const projects = [
     {
+      name: "Career Koala",
+      url: "https://tasleemashaik.github.io/career-koala/",
+      tech: [
+        "Go",
+        "PostgreSQL", 
+        "Next.js",
+        "Docker/Kubernetes",
+        "Helm",
+        "GCP"
+      ],
+      date: "Jan 2026",
+      description:
+      "Single-user career coach with 4 domain agents (Jobs, Coding, Projects, Networking). Go backend + Postgres, Next.js UI, and Helm deployment.",
+      image: "assets/images/career-koala.png"
+    },
+    {
       name: "Classical vs Quantum Neural Networks: A Practical Benchmark on USPS 'ZipsData'",
       url: "https://github.com/TasleemaShaik/TerminationProject-QuantumComputing/blob/main/Final%20Submission/Termination_Project_Report_Tasleema_Shaik_Mohammed.pdf",
       tech: [

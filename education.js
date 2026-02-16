@@ -2,7 +2,7 @@ const education = [
   {
     degree: "MS in Computer Science",
     institution: "Binghamton University(State University of New York), USA",
-    duration: "Jan 2024 - May 2025",
+    duration: "Jan 2024 - Dec 2025",
     gpa: "GPA: 3.770 / 4",
     url: "https://www.binghamton.edu/computer-science/graduate-programs/mscs/index.html",
     image: "assets/images/binghamton-bg.jpg",
